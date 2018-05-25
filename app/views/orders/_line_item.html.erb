@@ -11,6 +11,6 @@
     <%= line_item.quantity %>
   </td>
   <td>
-    $<%= line_item.product.price * line_item.quantity %>
+    <%= number_to_currency(line_item.product.price * line_item.quantity) %>
   </td>
 </tr>

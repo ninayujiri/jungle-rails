@@ -1,0 +1,14 @@
+Thanks for your order! Here are the details:
+
+
+<% @order.line_items.each do |item| %>
+Product: <%= item.product.name %>
+
+Description: <%= item.product.description %>
+
+Quantity: <%= item.quantity %>
+
+Price: $<%= item.item_price * item.quantity %>
+<% end %>
+
+Total: $<%= @order.total %>

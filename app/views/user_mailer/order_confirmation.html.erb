@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+  Hi,
+  <br><br>
+
+  Your order has been receieved. Here is your receipt!
+  <br><br>
+  Order#: <%= @order.id %>
+  <br><br>
+
+  <div>
+    <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @order.line_items.each do |item| %>
+        <tr>
+          <td>
+            <%= image_tag item.product.image.tiny %>
+          </td>
+          <td>
+            <strong><%= item.product.name %></strong>
+            <br>
+            <%= item.product.description %>
+          </td>
+          <td>
+            <%= item.quantity %>
+          </td>
+          <td>
+            $<%= item.item_price * item.quantity %>
+          </td>
+        </tr>
+      <% end %>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>
+            Total:
+          </th>
+          <th>
+            $<%= @order.total %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+    </p>
+  </body>
+</html>

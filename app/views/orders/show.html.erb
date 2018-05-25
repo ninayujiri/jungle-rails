@@ -21,7 +21,7 @@
     </table>
 
     <hr>
-    <p style ="text-align:right; font-size: 16px">Order total: $<%= @order.total_cents %></p>
+    <p style ="text-align:right; font-size: 16px">Order total: <%= number_to_currency(@order.total_cents / 100)%></p>
     <hr>
     <p style ="text-align:center; font-size: 16px">A confirmation email has been sent to: <%= @order.email %></p>
 
