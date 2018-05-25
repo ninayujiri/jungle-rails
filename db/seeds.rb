@@ -21,6 +21,19 @@ end
 
 # Let's do this ...
 
+## USERS
+
+User.destroy_all
+
+5.times do
+  User.create({
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password_digest: Faker::Internet.password
+  })
+end
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -132,5 +145,23 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+products = Product.all
+
+products.each do |product|
+  5.times do
+    product.reviews.create!({
+      rating:  Faker::Number.between(1, 5),
+      description: Faker::Hipster.sentence,
+      user_id: Faker::Number.between(1, 5),
+    })
+  end
+end
 
 puts "DONE!"

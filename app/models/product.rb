@@ -3,7 +3,6 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :reviews
 
-
   monetize :price_cents, numericality: true
   mount_uploader :image, ProductImageUploader
 
