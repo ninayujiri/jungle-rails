@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       redirect_to :products
     else
     # If user's login doesn't work, send them back to the login form
-      # flash[:error] = 'An error occured!'
       @error = 'Wrong credentials'
       flash[:email] = params[:email]
       render 'new'
