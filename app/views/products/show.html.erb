@@ -25,6 +25,8 @@
           <dd></dd>
           <dd></dd>
 
+
+          <% if current_user %>
           <hr>
 
           <dd><article class="review-form">
@@ -40,6 +42,9 @@
               <%= f.submit %>
             <% end %>
           </article></dd>
+
+          <% end %>
+
         </dl>
 
       </div>
