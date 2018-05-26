@@ -1,7 +1,7 @@
 <section class="products-show">
 
   <header class="page-header">
-    <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <p><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></p>
   </header>
 
   <article class="product-detail">
@@ -14,43 +14,73 @@
 
       <div class="col-sm-8">
         <dl class="dl-horizontal">
-          <dt>Name</dt>
-          <dd><%= @product.name %></dd>
-          <dt>Description</dt>
+
+          <dd><h2><%= @product.name %></h2></dd>
+          <br>
+          <dd><strong><h4>Description</h4></strong></dd>
           <dd><%= @product.description %></dd>
-          <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
-          <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <br>
+          <dd><strong><h5><%= @product.quantity %> left in stock</h5></strong></dd>
+          <br>
+          <dd><strong><h4>Price</h4></strong></dd>
+          <dd>$<%= @product.price %></dd>
           <dd></dd>
           <dd></dd>
+          <dd></dd>
 
+          <dd>
+            <section class="users-new">
+              <header class="page-header">
+                <h4>Leave a review</h4>
+              </header>
 
-          <% if current_user %>
-          <hr>
+              <% if current_user %>
+                <div class="row">
+                  <div class="col-sm-6 col-sm">
+                    <%= form_for [@product, @review] do |form| %>
 
-          <dd><article class="review-form">
-            <%= form_for [@product, @review] do |f| %>
-              <div class="field">
-                <%= f.label :rating %><br>
-                <%= f.select :rating, ['1', '2', '3', '4', '5'] %>
-              </div>
-              <div class="field">
-                <%= f.label :rating %><br>
-                <%= f.text_area :description %>
-              </div>
-              <%= f.submit %>
-            <% end %>
-          </article></dd>
+                      <div class="form-group">
+                        <%= form.label :rating %><br>
+                        <%= form.select :rating, ['1', '2', '3', '4', '5'], class: 'form-control' %>
+                      </div>
 
-          <% end %>
+                      <div class="form-group">
+                        <%= form.label :description %><br>
+                        <%= form.text_area :description, class: 'form-control'%>
+                      </div>
+
+                      <%= form.submit 'Review', class: 'btn btn-primary' %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+            </section>
+          </dd>
 
         </dl>
-
       </div>
     </div>
   </article>
 
-  <%= render partial: 'review', collection: @product.reviews.order(created_at: :desc) %>
+  <br><br><br>
+  <div style = "text-align: center">
+    <h3 style = "text-align: center">Customer Reviews</h3>
+    Average Rating:
+    <span class="badge badge-pill badge-primary"><%= @product.reviews.average(:rating).to_i %></span>
+  </div>
+
+  <table class="table reviews">
+    <thead>
+      <tr>
+        <th scope="col">Rating</th>
+        <th scope="col" colspan="2">Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render partial: 'review', collection: @product.reviews.order(created_at: :desc) %>
+    </tbody>
+  </table>
 
 </section>

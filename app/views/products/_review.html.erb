@@ -1,13 +1,10 @@
-<br>
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-sm-8">
-      <dl class="dl-horizontal">
-        <dt><p>Rating</p></dt>
-        <dd><%= review.rating %></dd>
-        <dt><p>Description</p></dt>
-        <dd><%= review.description %></dd>
-      </dl>
-    </div>
-  </div>
-</div>
+<tr>
+  <td><span class="badge badge-pill badge-primary"><%= review.rating %></span>
+</td>
+  <td><%= review.description %></td>
+  <td>
+<% if current_user.present? && review.user.id == current_user.id %>
+<%= link_to fa_icon('trash'), product_review_path(@product.id, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+  </td>
+</tr>
