@@ -8,11 +8,14 @@ A mini e-commerce application built with Rails 4.2.
 Checkout process:
 !["GIF of Checkout Process"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/cart-checkout.gif?raw=true)
 
+
 Reviews Process:
 !["GIF of Reviews Process"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/cart-reviews.gif?raw=true)
 
+
 Admin Pages:
 !["Screenshot of Admin Products Page"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/admin-products.png?raw=true)
+
 !["Screenshot of Admin Categories Page"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/admin-categories.png?raw=true)
 
 
