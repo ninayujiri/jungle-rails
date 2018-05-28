@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    before_save :downcase_email
+
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
@@ -23,8 +25,12 @@ class UsersController < ApplicationController
         :last_name,
         :email,
         :password,
-        :password_confirmation
+        :password_confirmations
       )
+    end
+
+    def downcase_email
+      self.email.downcase
     end
 
 end

@@ -1,16 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'Validations' do
+  subject { User.new(
+    first_name: 'Joe',
+    last_name: 'Malone',
+    email: 'jmalone@example.com',
+    password: 'test123',
+    password_confirmation: 'test123'
+  )}
 
-    subject { User.new(
-      first_name: 'Joe',
-      last_name: 'Malone',
-      email: 'jmalone@example.com',
-      password: 'test123',
-      password_confirmation: 'test123'
-    )}
-
+  context 'Validations' do
     it 'is valid if it has a first_name, last_name, email, password and password_confirmation' do
       expect(subject).to be_valid
       puts subject.errors.full_messages
@@ -62,10 +61,26 @@ RSpec.describe User, type: :model do
       expect(subject).not_to be_valid
       puts subject.errors.full_messages
     end
+  end
 
+  context '#authenticate_with_credentials' do
+    it 'returns true if the user is authenticated' do
+      subject.save
+      user = User.authenticate_with_credentials('jmalone@example.com', 'test123')
+      expect(user).to be_truthy
+    end
 
+    it 'successfully validates if there are spaces around the email' do
+      subject.save
+      user = User.authenticate_with_credentials(' jmalone@example.com ', 'test123')
+      expect(user).to be_truthy
+    end
 
-
+    it 'successfully validates if wrong case is used' do
+      subject.save
+      user = User.authenticate_with_credentials('jMaLoNe@EXAMPLE.com', 'test123')
+      expect(user).to be_truthy
+    end
 
   end
 end
