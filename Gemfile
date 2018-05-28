@@ -48,6 +48,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
+  gem 'sqlite3', '1.3.13'
 end
 
 group :development do
@@ -61,4 +62,5 @@ end
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+  gem 'pg'
 end
