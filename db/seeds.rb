@@ -103,7 +103,7 @@ User.transaction do
   cat2.products.create!({
     name:  'Modern Skateboards',
     description: Faker::Hipster.paragraph(4),
-    image: open_asset('apparel7.jpg'),
+    image: open_asset('electronics1.jpg'),
     quantity: 40,
     price: 164.49
   })
@@ -111,7 +111,7 @@ User.transaction do
   cat2.products.create!({
     name:  'Hotdog Slicer',
     description: Faker::Hipster.paragraph(4),
-    image: open_asset('apparel8.jpg'),
+    image: open_asset('electronics2.jpg'),
     quantity: 0,
     price: 26.00
   })
