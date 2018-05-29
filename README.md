@@ -1,9 +1,19 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2.
+A mini e-commerce application built with Rails 4.2. Added to an existing code-base and implemented new features:
+
+**Sold Out Badge**: Implemented boolean function to display badge when inventory is at zero.
+**Admin Categories**: Created restful routes to be able to create new categories within the admin namespace.
+**User Authentication**: User is able to signup/login to Jungle where password is encrypted and email is validated through uniqueness.
+**Enhanced Order Page**: Order details shown with image, description, quantity and cart total upon successful payment.
+**Confirmation Email**: Email is sent to user to confirm purchase with order details.
+**Product Ratings**: Users logged in are able to leave reviews for each product and can delete reviews. Visitors are able to see product ratings, but must be logged in to leave a review.
 
 
 ## Final Product
+
+Check out the live demo on [Heroku](https://jungle-rails-app.herokuapp.com/).
+
 
 Checkout process:
 !["GIF of Checkout Process"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/cart-checkout.gif?raw=true)
