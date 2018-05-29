@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
 
+      # Commented out for Heroku deployment
       # UserMailer.order_confirmation(order).deliver_now
 
       redirect_to order, notice: 'Your Order has been placed.'
