@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2. Added to an existing code-base and implemented new features:
+A mini e-commerce application built with Rails 4.2. In this project, I added to an existing code-base and implemented new features:
 
 - **Sold Out Badge**: Implemented boolean function to display badge when inventory is at zero.
 - **Admin Categories**: Created restful routes to be able to create new categories within the admin namespace.
@@ -12,21 +12,21 @@ A mini e-commerce application built with Rails 4.2. Added to an existing code-ba
 
 ## Final Product
 
-Check out the live demo on [Heroku](https://jungle-rails-app.herokuapp.com/).
+- Check out the live demo on [Heroku](https://jungle-rails-app.herokuapp.com/).
 
 
 Checkout process:
 !["GIF of Checkout Process"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/cart-checkout.gif?raw=true)
 
 
-Reviews Process:
-!["GIF of Reviews Process"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/cart-reviews.gif?raw=true)
-
-
 Admin Pages:
 !["Screenshot of Admin Products Page"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/admin-products.png?raw=true)
 
 !["Screenshot of Admin Categories Page"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/admin-categories.png?raw=true)
+
+
+Reviews Process:
+!["GIF of Reviews Process"](https://github.com/ninayujiri/jungle-rails/blob/master/docs/cart-reviews.gif?raw=true)
 
 
 ## Getting Started
