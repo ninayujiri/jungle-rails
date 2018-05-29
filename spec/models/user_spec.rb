@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   subject { User.new(
     first_name: 'Joe',
     last_name: 'Malone',
-    email: 'jmalone@example.com',
+    email: 'jmalone@domain.com',
     password: 'test123',
     password_confirmation: 'test123'
   )}
@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
       subject2 = User.create(
         first_name: 'Jane',
         last_name: 'Malone',
-        email: 'jmalone@example.com',
+        email: 'jmalone@domain.com',
         password: 'fake123',
         password_confirmation: 'fake123'
       )
@@ -66,19 +66,19 @@ RSpec.describe User, type: :model do
   context '#authenticate_with_credentials' do
     it 'returns true if the user is authenticated' do
       subject.save
-      user = User.authenticate_with_credentials('jmalone@example.com', 'test123')
+      user = User.authenticate_with_credentials('jmalone@domain.com', 'test123')
       expect(user).to be_truthy
     end
 
     it 'successfully validates if there are spaces around the email' do
       subject.save
-      user = User.authenticate_with_credentials(' jmalone@example.com ', 'test123')
+      user = User.authenticate_with_credentials(' jmalone@domain.com ', 'test123')
       expect(user).to be_truthy
     end
 
     it 'successfully validates if wrong case is used' do
       subject.save
-      user = User.authenticate_with_credentials('jMaLoNe@EXAMPLE.com', 'test123')
+      user = User.authenticate_with_credentials('jmalone@domain.com', 'test123')
       expect(user).to be_truthy
     end
 
